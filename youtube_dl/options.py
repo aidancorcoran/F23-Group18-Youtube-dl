@@ -419,6 +419,10 @@ def parseOpts(overrideArguments=None):
             'If a merge is required (e.g. bestvideo+bestaudio), '
             'output to given container format. One of mkv, mp4, ogg, webm, flv. '
             'Ignored if no merge is required'))
+    video_format.add_option(
+        '--output-name-playlist',
+        action='store_true', dest='playlist_output_name', default=False,
+        help='Playlist output is named from off the playlist')
 
     subtitles = optparse.OptionGroup(parser, 'Subtitle Options')
     subtitles.add_option(

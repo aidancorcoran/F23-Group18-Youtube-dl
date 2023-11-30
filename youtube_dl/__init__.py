@@ -241,6 +241,12 @@ def _real_main(argv=None):
                      ' file! Use "{0}.%(ext)s" instead of "{0}" as the output'
                      ' template'.format(outtmpl))
 
+    # playlist_output_name option encompasses these other three options
+    if opts.playlist_output_name:
+        opts.extract_flat = True
+        opts.dumpjson = True
+        opts.dump_single_json = True
+
     any_getting = opts.geturl or opts.gettitle or opts.getid or opts.getthumbnail or opts.getdescription or opts.getfilename or opts.getformat or opts.getduration or opts.dumpjson or opts.dump_single_json
     any_printing = opts.print_json
     download_archive_fn = expand_path(opts.download_archive) if opts.download_archive is not None else opts.download_archive
